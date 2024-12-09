@@ -95,7 +95,6 @@ func checksum(input []string) int {
 
 func moveSpacesWholeFile(arr []string) {
 	end := len(arr) - 1
-	seen := make(map[string]bool)
 
 	for end > 0 {
 		for end >= 0 && arr[end] == "." {
@@ -113,15 +112,12 @@ func moveSpacesWholeFile(arr []string) {
 			lenRun++
 		}
 
-		if !seen[id] {
-			head := findAvailableSpaesMatchLen(arr, end, lenRun)
-			if head > -1 {
-				for ptr := 0; ptr < lenRun; ptr++ {
-					arr[head+ptr] = current
-					arr[end-ptr] = "."
-				}
+		head := findAvailableSpaesMatchLen(arr, end, lenRun)
+		if head > -1 {
+			for ptr := 0; ptr < lenRun; ptr++ {
+				arr[head+ptr] = current
+				arr[end-ptr] = "."
 			}
-			seen[id] = true
 		}
 
 		end -= lenRun
