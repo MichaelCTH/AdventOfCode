@@ -33,7 +33,7 @@ To run any solution, follow these steps:
     ```
 3. Navigate to the specific day’s folder and run the solution. For example:
     ```bash
-    cd 2024/Day1
+    cd 2024/Day01
     go run main.go
     ```
 
